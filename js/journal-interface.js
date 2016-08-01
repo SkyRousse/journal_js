@@ -8,9 +8,12 @@ $(document).ready(function() {
     var words = userEntry.words(userString);
     var vowels = userEntry.vowels(userString);
     var consonants = userEntry.consonants(userString);
+    var firstSentence = userEntry.getTeaser(userString);
+
     $('#wordCount').text(words);
     $('#vowelCount').text(vowels);
     $('#consonantCount').text(consonants);
+    $('#getTeaser').text(firstSentence);
     $('#output').show();
   });
 });

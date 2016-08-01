@@ -9,9 +9,12 @@ $(document).ready(function() {
     var words = userEntry.words(userString);
     var vowels = userEntry.vowels(userString);
     var consonants = userEntry.consonants(userString);
+    var firstSentence = userEntry.getTeaser(userString);
+
     $('#wordCount').text(words);
     $('#vowelCount').text(vowels);
     $('#consonantCount').text(consonants);
+    $('#getTeaser').text(firstSentence);
     $('#output').show();
   });
 });
@@ -37,6 +40,22 @@ Entry.prototype.consonants = function(entry) {
   var letters = entry.match(/[a-z]/gi);
   var vowels = entry.match(/[aeiou]/gi);
   return letters.length - vowels.length;
+};
+
+Entry.prototype.getTeaser = function(entry) {
+  var sentences = entry.match( /[^\.!\?]+[\.!\?]+/ig );
+  var firstSentence = sentences.shift();
+  var teaser = firstSentence.split(' ');
+  var output = [];
+  if (teaser.length > 8) {
+    for (var i = 0; i < 8; i++) {
+      output.push(teaser[i]);
+    }
+    var result = output.join(' ')
+    return result
+  } else {
+    return firstSentence;
+  }
 };
 
 exports.entryModule = Entry;
