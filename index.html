@@ -4,9 +4,18 @@
     <meta charset="utf-8">
     <title>Journal</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="css/styles.css" charset="utf-8">
   </head>
   <body>
-
+    <form id="entry">
+      <textarea name="name" id="text-entry" rows="8" cols="40"></textarea>
+      <button type="submit" name="button">See Your Word Stats</button>
+    </form>
+    <div  id="output">
+    <p>
+      Your entry contains <span id="wordCount"></span> words, <span id="vowelCount"></span> vowels, and <span id="consonantCount"></span> consonants.
+    </p>
+  </div>
   </body>
 </html>
